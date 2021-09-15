@@ -1,0 +1,54 @@
+h1 {
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  padding: 0.5em;
+  margin-top: 0;
+  padding-left: 15%;
+}
+
+h2,
+h3 {
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 15px;
+}
+h2 {
+  background-color: #fc466b;
+  color: white;
+  font-size: 2em;
+  padding: 15px;
+  margin-top: 1em;
+}
+h3 {
+  background-color: #3f5efb;
+  color: white;
+  font-size: 1.7em;
+  padding: 15px;
+}
+
+p {
+  font-size: 1.1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+@media screen and (min-width: 500px) {
+  h2,
+  h3 {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  p {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}

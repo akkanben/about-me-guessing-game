@@ -75,6 +75,7 @@ let introMessage =
   ', please participate in this brief 5 question guessing game. Answers can be in Yes/No or Y/N form.\n\n';
 
 // This for loop iterates all the questions and a switch statement controls which type of question gets asked.
+// The questions, responses, and the correct answers are all stored in arrays with matching indexes.
 for (let i = 0; i < questions.length; i++) {
   let answer = null;
 
@@ -132,13 +133,16 @@ for (let i = 0; i < questions.length; i++) {
       if (snesGameFound) {
         score++;
         alert('You guessed it. I love ' + snesGuess + '!');
-        break;
-      }
-      snesGuessAttempts--;
-      if (snesGuessAttempts === 0) {
-        alert('Sorry out of guesses. Moving on.');
       } else {
-        alert('Nope, keep guessing.');
+        snesGuessAttempts--;
+        if (snesGuessAttempts === 0) {
+          alert(
+            'Sorry out of guesses. Moving on.\n\nPossible correct answers:\n\n' +
+                answers[i]
+          );
+        } else {
+          alert('Nope, keep guessing.');
+        }
       }
     }
     break;

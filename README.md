@@ -36,3 +36,9 @@ Author: Ben Mills
    - Keep track of the total number of correct answers. At the end tell them how many they got correct out of the 7 questions asked.
 
 Author: Ben Mills
+
+
+## Lab 04 Pair Programming 
+I was paired with Ben Mills. Ben was the navigator and I was the driver during our session. I aided Ben with refactoring switch statements into functions. This reduced the overall code block and allowed Ben to better organize the overall JavaScript file. Ben was fantastic to work with!
+
+Author: Jared Barnes

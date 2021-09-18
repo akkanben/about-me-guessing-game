@@ -1,5 +1,7 @@
 'use strict';
 
+let score = 0;
+
 // Questions
 let questions = [
   'First Question: Do you think I\'ve ever traveled outside of the country?',
@@ -52,9 +54,13 @@ let answers = [
   ],
 ];
 
+
+// 1st-5th Y/N question variables;
+let qAGuess = null;
 let seenIntro = false;
-let score = 0;
-let answer = null;
+let correctText = 'Correct! ';
+let incorrectText = 'Incorrect, actually ';
+let invalidText = 'Sorry I didn\'t catch that.';
 
 // 6th question variables
 let ageGuess = null;
@@ -68,49 +74,20 @@ let snesGameFound = false;
 function askYesNo(questionIndex) {
   if (questionIndex === 0 && !seenIntro) {
     seenIntro = true;
-    answer = prompt(introMessage + questions[questionIndex]).toLowerCase();
+    qAGuess = prompt(introMessage + questions[questionIndex]).toLowerCase();
   } else {
-    answer = prompt(questions[questionIndex]).toLowerCase();
+    qAGuess = prompt(questions[questionIndex]).toLowerCase();
   }
-  //
-  if (answers[questionIndex] === true) {
-    switch (answer) {
-    case 'y':
-      score++;
-      alert('Correct! ' + responses[questionIndex]);
-      break;
-    case 'n':
-      alert('Incorrect, actually ' + responses[questionIndex]);
-      break;
-    case 'yes':
-      score++;
-      alert('Correct! ' + responses[questionIndex]);
-      break;
-    case 'no':
-      alert('Incorrect, actually ' + responses[questionIndex]);
-      break;
-    default:
-      alert('Sorry I didn\'t catch that.');
-    }
-  } else if (answers[questionIndex] === false) {
-    switch (answer) {
-    case 'y':
-      alert('Incorrect, actually ' + responses[questionIndex]);
-      break;
-    case 'n':
-      score++;
-      alert('Correct! ' + responses[questionIndex]);
-      break;
-    case 'yes':
-      alert('Incorrect, actually ' + responses[questionIndex]);
-      break;
-    case 'no':
-      score++;
-      alert('Correct! ' + responses[questionIndex]);
-      break;
-    default:
-      alert('Sorry I didn\'t catch that.');
-    }
+  if (answers[questionIndex] === true && qAGuess[0] === 'y') {
+    alert(correctText + responses[questionIndex]);
+  } else if (answers[questionIndex] === true && qAGuess[0] === 'n') {
+    alert(incorrectText + responses[questionIndex]);
+  } else if (answers[questionIndex] === false && qAGuess[0] === 'y') {
+    alert(incorrectText + responses[questionIndex]);
+  } else if (answers[questionIndex] === false && qAGuess[0] === 'n') {
+    alert(correctText + responses[questionIndex]);
+  } else {
+    alert(invalidText);
   }
 }
 
@@ -119,9 +96,9 @@ function ageAsk(questionIndex) {
     if (ageGuessAttempts === 4) {
       ageGuess = prompt(
         questions[questionIndex] +
-          '\n\n You\'ve got ' +
-          ageGuessAttempts +
-          ' guesses left.'
+        '\n\n You\'ve got ' +
+        ageGuessAttempts +
+        ' guesses left.'
       );
     } else {
       ageGuess = prompt('You\'ve got ' + ageGuessAttempts + ' guesses left.');
@@ -146,9 +123,9 @@ function askVideoGame(questionIndex) {
     if (snesGuessAttempts === 6) {
       snesGuess = prompt(
         questions[questionIndex] +
-          '\n\n You\'ve got ' +
-          snesGuessAttempts +
-          ' guesses left.'
+        '\n\n You\'ve got ' +
+        snesGuessAttempts +
+        ' guesses left.'
       );
     } else {
       snesGuess = prompt('You\'ve got ' + snesGuessAttempts + ' guesses left.');
@@ -168,7 +145,7 @@ function askVideoGame(questionIndex) {
       if (snesGuessAttempts === 0) {
         alert(
           'Sorry out of guesses. Moving on.\n\nPossible correct answers:\n\n' +
-            answers[questionIndex]
+          answers[questionIndex]
         );
       } else {
         alert('Nope, keep guessing.');
@@ -209,7 +186,7 @@ for (let i = 0; i < questions.length; i++) {
     askVideoGame(i);
     break;
   default:
-    // Yes/No Questions (0-4)
+    // Yes/No Questions (index 0-4)
     askYesNo(i);
   }
 }
@@ -230,16 +207,16 @@ alert(goodbyeMessage);
 let spacer = reapeatedLetterGenerator(' ', 23 - visiterName.length);
 console.log(
   ' _________________________________________\n' +
-    '/ Thank you for playing my guessing game. \\\n' +
-    '\\ Have a good day ' +
-    visiterName +
-    '.' +
-    spacer +
-    '/\n' +
-    ' -----------------------------------------\n' +
-    '        \\    ^__^\n' +
-    '         \\   (oo)\\_______\n' +
-    '             (__)\\       )\\/\\\n' +
-    '                 ||----w |\n' +
-    '                 ||     ||'
+  '/ Thank you for playing my guessing game. \\\n' +
+  '\\ Have a good day ' +
+  visiterName +
+  '.' +
+  spacer +
+  '/\n' +
+  ' -----------------------------------------\n' +
+  '        \\    ^__^\n' +
+  '         \\   (oo)\\_______\n' +
+  '             (__)\\       )\\/\\\n' +
+  '                 ||----w |\n' +
+  '                 ||     ||'
 );

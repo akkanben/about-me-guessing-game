@@ -79,12 +79,14 @@ function askYesNo(questionIndex) {
     qAGuess = prompt(questions[questionIndex]).toLowerCase();
   }
   if (answers[questionIndex] === true && qAGuess[0] === 'y') {
+    score++;
     alert(correctText + responses[questionIndex]);
   } else if (answers[questionIndex] === true && qAGuess[0] === 'n') {
     alert(incorrectText + responses[questionIndex]);
   } else if (answers[questionIndex] === false && qAGuess[0] === 'y') {
     alert(incorrectText + responses[questionIndex]);
   } else if (answers[questionIndex] === false && qAGuess[0] === 'n') {
+    score++;
     alert(correctText + responses[questionIndex]);
   } else {
     alert(invalidText);

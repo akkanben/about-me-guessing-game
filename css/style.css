@@ -1,8 +1,11 @@
 .top-ten-container {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 2fr;
-  width: 100%
+  grid-template-columns: 1fr 2fr ;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%
+
 }
 
 .albums-img {

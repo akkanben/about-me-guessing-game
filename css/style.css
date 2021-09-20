@@ -92,6 +92,11 @@ p {
   margin-right: 10%;
 }
 
+@media screen and (min-width: 800px) {
+  .top-ten-container {
+    grid-template-columns: 1fr 2fr 1fr 2fr;
+  }
+}
 
 @media screen and (min-width: 500px) {
   h2,
@@ -120,5 +125,6 @@ p {
     width: 60%;
     margin-right: 20%;
     margin-left: 20%;
+
   }
 }
